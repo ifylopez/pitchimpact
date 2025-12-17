@@ -1,0 +1,50 @@
+#' Example FBref Possession dataset
+#'
+#' A cleaned and standardized example dataset containing FBref "Possession" statistics
+#' for a single team and season. Each row represents one player-season.
+#'
+#' This dataset follows the schema produced by \code{import_fbref_possession()} and is
+#' intended for examples, tests, and vignettes.
+#'
+#' @format A tibble with one row per player-season and 32 columns:
+#' \describe{
+#'   \item{team}{Team name.}
+#'   \item{season}{Season identifier.}
+#'   \item{player}{Player name.}
+#'   \item{nation_raw}{Original FBref nation cell.}
+#'   \item{nation_code}{Three-letter nation code extracted from \code{nation_raw}.}
+#'   \item{pos_raw}{Original FBref position string.}
+#'   \item{pos_primary}{Primary position.}
+#'   \item{pos_secondary}{Secondary position, if present; otherwise NA.}
+#'   \item{age}{Player age.}
+#'   \item{nineties}{Minutes played divided by 90.}
+#'   \item{touches}{Total touches.}
+#'   \item{touches_def_pen}{Touches in defensive penalty area.}
+#'   \item{touches_def_3rd}{Touches in defensive third.}
+#'   \item{touches_mid_3rd}{Touches in middle third.}
+#'   \item{touches_att_3rd}{Touches in attacking third.}
+#'   \item{touches_att_pen}{Touches in attacking penalty area.}
+#'   \item{touches_live}{Live-ball touches.}
+#'   \item{take_ons_att}{Take-ons attempted.}
+#'   \item{take_ons_succ}{Successful take-ons.}
+#'   \item{take_ons_succ_pct}{Successful take-on percentage.}
+#'   \item{take_ons_tackled}{Times tackled during take-on attempts.}
+#'   \item{take_ons_tackled_pct}{Tackled during take-on percentage.}
+#'   \item{carries}{Carries.}
+#'   \item{carry_total_dist}{Total carrying distance (yards).}
+#'   \item{carry_prg_dist}{Progressive carrying distance (yards).}
+#'   \item{carry_prg_c}{Progressive carries.}
+#'   \item{carries_final_third}{Carries into final third.}
+#'   \item{carries_pen_area}{Carries into penalty area.}
+#'   \item{miscontrols}{Miscontrols.}
+#'   \item{dispossessed}{Dispossessed.}
+#'   \item{passes_received}{Passes received.}
+#'   \item{prog_passes_received}{Progressive passes received (possession table).}
+#' }
+#'
+#' @source FBref (\url{https://fbref.com})
+#'
+#' @examples
+#' data("possession_example", package = "pitchimpact")
+#' dplyr::select(possession_example, player, touches, carries) |> head()
+"possession_example"

@@ -1,0 +1,51 @@
+#' Example FBref Passing dataset
+#'
+#' A cleaned and standardized example dataset containing FBref "Passing" statistics
+#' for a single team and season. Each row represents one player-season.
+#'
+#' This dataset follows the schema produced by \code{import_fbref_passing()} and is
+#' intended for examples, tests, and vignettes.
+#'
+#' @format A tibble with one row per player-season and 33 columns:
+#' \describe{
+#'   \item{team}{Team name.}
+#'   \item{season}{Season identifier.}
+#'   \item{player}{Player name.}
+#'   \item{nation_raw}{Original FBref nation cell.}
+#'   \item{nation_code}{Three-letter nation code extracted from \code{nation_raw}.}
+#'   \item{pos_raw}{Original FBref position string.}
+#'   \item{pos_primary}{Primary position.}
+#'   \item{pos_secondary}{Secondary position, if present; otherwise NA.}
+#'   \item{age}{Player age.}
+#'   \item{nineties}{Minutes played divided by 90.}
+#'   \item{passes_completed}{Passes completed.}
+#'   \item{passes_attempted}{Passes attempted.}
+#'   \item{pass_completion_pct}{Pass completion percentage.}
+#'   \item{total_pass_distance}{Total passing distance (yards).}
+#'   \item{prog_pass_distance}{Progressive passing distance (yards).}
+#'   \item{short_completed}{Short passes completed (5–15 yards).}
+#'   \item{short_attempted}{Short passes attempted (5–15 yards).}
+#'   \item{short_completion_pct}{Short pass completion percentage (5–15 yards).}
+#'   \item{medium_completed}{Medium passes completed (15–30 yards).}
+#'   \item{medium_attempted}{Medium passes attempted (15–30 yards).}
+#'   \item{medium_completion_pct}{Medium pass completion percentage (15–30 yards).}
+#'   \item{long_completed}{Long passes completed (30+ yards).}
+#'   \item{long_attempted}{Long passes attempted (30+ yards).}
+#'   \item{long_completion_pct}{Long pass completion percentage (30+ yards).}
+#'   \item{assists}{Assists.}
+#'   \item{xag}{Expected assisted goals (xAG).}
+#'   \item{xa}{Expected assists (xA).}
+#'   \item{assists_minus_xag}{Assists minus xAG.}
+#'   \item{key_passes}{Key passes.}
+#'   \item{passes_final_third}{Passes into final third.}
+#'   \item{passes_penalty_area}{Passes into penalty area.}
+#'   \item{crosses_penalty_area}{Crosses into penalty area.}
+#'   \item{progressive_passes}{Progressive passes.}
+#' }
+#'
+#' @source FBref (\url{https://fbref.com})
+#'
+#' @examples
+#' data("passing_example", package = "pitchimpact")
+#' dplyr::select(passing_example, player, touches, carries) |> head()
+"passing_example"
