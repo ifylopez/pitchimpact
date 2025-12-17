@@ -1,9 +1,16 @@
 Package: pitchimpact
-Title: What the Package Does (One Line, Title Case)
+Title: Player and Team Performance Analysis in Football
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Mateo", "Lopez", , "mateandreslopez@gmail.com", role = c("aut", "cre"))
+Description: Tools for analyzing football (soccer) player and team performance using
+    match-level and season-level data. The package provides functions to
+    standardize datasets from different data sources, compute per-90-minute
+    metrics, evaluate player influence and contribution, and generate
+    interpretable summaries and visualizations. Designed to be data-source
+    agnostic, pitchimpact can be applied to any team or competition and is
+    intended as a foundation for performance analysis in professional football
+    contexts.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
