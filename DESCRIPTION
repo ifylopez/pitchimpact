@@ -11,10 +11,13 @@ Description: Tools for analyzing football (soccer) player and team performance u
     agnostic, pitchimpact can be applied to any team or competition and is
     intended as a foundation for performance analysis in professional football
     contexts.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 URL: https://github.com/ifylopez/pitchimpact
 BugReports: https://github.com/ifylopez/pitchimpact/issues
+Imports: 
+    dplyr,
+    janitor,
+    readr
