@@ -22,3 +22,6 @@ Imports:
     janitor,
     readr,
     stringr
+Depends: 
+    R (>= 3.5)
+LazyData: true
