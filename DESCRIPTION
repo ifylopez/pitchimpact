@@ -20,4 +20,5 @@ BugReports: https://github.com/ifylopez/pitchimpact/issues
 Imports: 
     dplyr,
     janitor,
-    readr
+    readr,
+    stringr

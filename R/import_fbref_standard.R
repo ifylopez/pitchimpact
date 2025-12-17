@@ -1,14 +1,12 @@
 #' Import FBref Standard Stats (season-level) and standardize schema
 #'
-#' Imports an FBref "Standard Stats" table (tailored to the common workflow:
-#' FBref table -> copy/paste into Google Sheets -> export as CSV) and returns a
-#' cleaned, standardized data frame with one row per player-season.
+#' Imports an FBref "Standard Stats" table (common workflow: FBref -> copy/paste into
+#' Google Sheets -> export CSV) and returns a cleaned, standardized data frame
+#' with one row per player-season.
 #'
-#' FBref tables pasted into spreadsheets often include extra header rows
-#' (group labels such as "Playing Time", "Performance", "Per 90 Minutes") and
-#' duplicated statistics (season totals and per-90 values).
-#' Use `header_row` to specify which row contains the real column names
-#' (e.g., 2 for a Google Sheets export).
+#' The export often includes a first row with group labels ("Standard", "Expected")
+#' and a trailing "Matches" column. Use `header_row` to specify which row contains
+#' the real headers (typically 2).
 #'
 #' The function keeps season totals only and removes duplicated per-90 columns.
 #' Per-90 metrics should be recomputed later from minutes and nineties.
