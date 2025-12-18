@@ -162,12 +162,37 @@ Once you have the standardized versions of each table, you combine them into a s
 
 In real usage, you would first import CSVs:
 
-```{r}
-standard <- import_fbref_standard("standard.csv", team = "Rosario Central", season = 2025)
-shooting <- import_fbref_shooting("shooting.csv", team = "Rosario Central", season = 2025)
-passing <- import_fbref_passing("passing.csv", team = "Rosario Central", season = 2025)
-defensive <- import_fbref_defensive_actions("defensive.csv", team = "Rosario Central", season = 2025)
-possession <- import_fbref_possession("possession.csv", team = "Rosario Central", season = 2025)
+```{r, eval = FALSE}
+standard <- import_fbref_standard(
+  "standard.csv",
+  team = "Rosario Central",
+  season = 2025
+)
+
+shooting <- import_fbref_shooting(
+  "shooting.csv",
+  team = "Rosario Central",
+  season = 2025
+)
+
+passing <- import_fbref_passing(
+  "passing.csv",
+  team = "Rosario Central",
+  season = 2025
+)
+
+defensive <- import_fbref_defensive_actions(
+  "defensive.csv",
+  team = "Rosario Central",
+  season = 2025
+)
+
+possession <- import_fbref_possession(
+  "possession.csv",
+  team = "Rosario Central",
+  season = 2025
+)
+
 ```
 
 > **For this vignette:** we merge the built-in example tables.
