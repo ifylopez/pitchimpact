@@ -1,0 +1,223 @@
+---
+title: "From FBref to Master Table"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{From FBref to Master Table}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+This vignette presents an end-to-end workflow to build a **player-season master table** starting from FBref squad tables using `{pitchimpact}`.
+
+The typical workflow is:
+
+1.  Copy a table from FBref
+
+2.  Paste it into Google Sheets
+
+3.  Export it as CSV
+
+4.  Import and standardize it with `import_fbref_*()`
+
+5.  Merge all tables into a single dataset with `merge_fbref_tables()`
+
+## Step 1: Export FBref tables to CSV (real workflow)
+
+In practice, you will need to export each FBref table (Standard, Shooting, Passing, Defensive Actiones, Possession) to a CSV file.
+
+### 1.1. Copy ONLY the table
+
+When copying from FBref, **copy only the table itself** (headers + data rows). Do not include titles/subtitles or text above the table.
+
+### 1.2. Paste into Google Sheets
+
+Paste the table into Google Sheets. FBref tables pasted into Sheets often include:
+
+-   Row 1: grouped header labels (e.g., “Playing Time”, “Performance”, “Per 90 Minutes”)
+
+-   Row 2: actual column names (the “real” headers)
+
+### 1.3. Minimal cleaning in Sheets
+
+Before exporting, do one quick check:
+
+-   Sometimes the column headers are repeated again in the middle of the data (as rows).
+
+-   If that happens, delete any rows that are clearly repeated headers.
+
+No other manual cleaning is required.
+
+### 1.4. Export to CSV
+
+Download the sheet as a CSV file.
+
+> **For this vignette:** we skip the manual export step and use the built-in example datasets that represent the output of the import functions.
+
+## Step 2: Load packages and example datasets
+
+```{r setup}
+library(pitchimpact)
+library(dplyr)
+```
+
+Then, load the example datasets included in the package:
+
+```{r}
+data("standard_example", package = "pitchimpact")
+data("shooting_example", package = "pitchimpact")
+data("passing_example", package = "pitchimpact")
+data("defensive_actions_example", package = "pitchimpact")
+data("possession_example", package = "pitchimpact")
+data("master_example", package = "pitchimpact")
+```
+
+## Step 3: Understand what each imported table looks like
+
+### 3.1. Standard stats
+
+```{r}
+glimpse(standard_example)
+```
+
+Useful for:
+
+-   playing time (minutes, nineties)
+
+-   core production (goals, assists, xG)
+
+-   context and identifiers (team, season, player, nation, positions)
+
+### 3.2. Shooting
+
+```{r}
+glimpse(shooting_example)
+```
+
+Useful for:
+
+-   shot volume and accuracy
+
+-   finishing indicators
+
+-   shot distance and free-kick shooting
+
+### 3.3. Passing
+
+```{r}
+glimpse(passing_example)
+```
+
+Useful for:
+
+-   pass volume and accuracy
+
+-   distribution profile by distance
+
+-   chance creation (xA, key passes)
+
+-   progression (progressive passes, passes into final third)
+
+### 3.4. Defensive Actions
+
+```{r}
+glimpse(defensive_actions_example)
+```
+
+Useful for:
+
+-   tackles and pressures-style defensive output
+
+-   interceptions, blocks, clearances
+
+-   errors leading to shots
+
+### 3.5. Possession
+
+```{r}
+glimpse(possession_example)
+```
+
+Useful for:
+
+-   touches by zone
+
+-   take-ons and carries
+
+-   ball control events (miscontrols, dispossessed)
+
+-   receptions and progressive receptions
+
+## Step 4: Merge standardized tables into a master dataset
+
+Once you have the standardized versions of each table, you combine them into a single master dataset using `merge_fbref_tables()`.
+
+In real usage, you would first import CSVs:
+
+```{r}
+standard <- import_fbref_standard("standard.csv", team = "Rosario Central", season = 2025)
+shooting <- import_fbref_shooting("shooting.csv", team = "Rosario Central", season = 2025)
+passing <- import_fbref_passing("passing.csv", team = "Rosario Central", season = 2025)
+defensive <- import_fbref_defensive_actions("defensive.csv", team = "Rosario Central", season = 2025)
+possession <- import_fbref_possession("possession.csv", team = "Rosario Central", season = 2025)
+```
+
+> **For this vignette:** we merge the built-in example tables.
+
+```{r}
+master_from_merge <- merge_fbref_tables(
+standard = standard_example,
+shooting = shooting_example,
+passing = passing_example,
+defensive = defensive_actions_example,
+possession = possession_example
+)
+
+glimpse(master_from_merge)
+```
+
+## Step 5: Validate the master table
+
+### 5.1. One row per player-season
+
+```{r}
+master_from_merge %>%
+count(team, season, player) %>%
+summarise(dup_keys = sum(n > 1)) %>%
+pull(dup_keys)
+
+```
+
+A value of `0` means there are no duplicated player-season keys.
+
+### 5.2. Compare with the shipped master example
+
+The package ships master_example for convenience. We can compare column names to confirm we built the same structure
+
+```{r}
+setequal(names(master_from_merge), names(master_example))
+```
+
+## Summary
+
+-   In real usage, you export FBref tables to CSV via Google Sheets.
+
+<!-- -->
+
+-   `{pitchimpact}` standardizes each table into a consistent schema.
+
+<!-- -->
+
+-   `merge_fbref_tables()` combines all standardized tables into a single player-season master dataset.
+
+<!-- -->
+
+-   The included example datasets make the workflow reproducible and easy to learn.
