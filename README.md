@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pitchimpact
+# pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
 <!-- badges: start -->
 
@@ -30,20 +30,16 @@ You can install the development version of pitchimpact from
 ``` r
 # install.packages("pak")
 pak::pak("ifylopez/pitchimpact")
-#> ✔ Updated metadata database: 5.93 MB in 10 files.
+#> ✔ Updated metadata database: 5.48 MB in 4 files.
 #> ℹ Updating metadata database✔ Updating metadata database ... done
 #>  
 #> → Will update 1 package.
 #> → Will download 1 package with unknown size.
-#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: ec05c3b)
+#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: 6cf6121)
 #> ℹ Getting 1 pkg with unknown size
-#> ✔ Got pitchimpact 0.0.0.9000 (source) (58.89 kB)
-#> ℹ Packaging pitchimpact 0.0.0.9000
-#> ✔ Packaged pitchimpact 0.0.0.9000 (2s)
-#> ℹ Building pitchimpact 0.0.0.9000
-#> ✔ Built pitchimpact 0.0.0.9000 (3.2s)
-#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@ec05c3b) (191ms)
-#> ✔ 1 pkg + 31 deps: kept 24, upd 1, dld 1 (NA B) [40.9s]
+#> ✔ Cached copy of pitchimpact 0.0.0.9000 (source) is the latest build
+#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@6cf6121) (253ms)
+#> ✔ 1 pkg + 31 deps: kept 24, upd 1 [33s]
 ```
 
 ## First steps
