@@ -58,6 +58,6 @@ intended for examples, tests, and vignettes.
 }
 \examples{
 data("passing_example", package = "pitchimpact")
-dplyr::select(passing_example, player, touches, carries) |> head()
+dplyr::select(passing_example, player, passes_completed, total_pass_distance) |> head()
 }
 \keyword{datasets}
