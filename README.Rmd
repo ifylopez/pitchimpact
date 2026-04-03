@@ -148,18 +148,6 @@ The resulting table preserves one row per player and aggregates all available me
 
 ---
 
-## Typical workflow
-
-1. Export tables from FBref to CSV via Google Sheets
-2. Import them using `pitchimpact`
-3. Merge into a master dataset
-4. Analyze player performance
-
-See the full workflow in the vignette:
-- [From FBref to Master Table](articles/from-fbref-to-master-table.html)
-
----
-
 ## Roadmap
 
 The following roadmap outlines the current scope and planned development of **pitchimpact**.
