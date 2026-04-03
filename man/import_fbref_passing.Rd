@@ -32,3 +32,14 @@ Google Sheets may convert the column "Assists minus expected goals assisted"
 into a formula and export "#ERROR!". This function ignores the raw value and
 recomputes it as: assists - xag.
 }
+\examples{
+\dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_passing(
+  path = "passing.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+}
+
+}

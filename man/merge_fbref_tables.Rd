@@ -38,3 +38,18 @@ team, season, and player. When \code{standard} is provided, overlapping columns
 from other tables are joined with table-specific suffixes (e.g. \verb{_shooting})
 and then dropped, keeping the \code{standard} version as source of truth.
 }
+\examples{
+# Load example datasets included in the package
+data(standard_example)
+data(shooting_example)
+
+# Merge tables into a player-season master dataset
+master <- merge_fbref_tables(
+  standard_example,
+  shooting_example
+)
+
+# Inspect result
+head(master)
+
+}

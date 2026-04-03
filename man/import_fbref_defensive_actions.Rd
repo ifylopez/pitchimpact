@@ -28,3 +28,14 @@ row per player-season.
 The export usually contains a first row with group labels. Use \code{header_row}
 to specify the real header row (typically 2).
 }
+\examples{
+\dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_defensive_actions(
+  path = "defensive_actions.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+}
+
+}

@@ -39,3 +39,14 @@ nationality is split into a raw field (\code{nation_raw}) and a cleaned
 three-letter country code (\code{nation_code}), while positions are parsed into
 primary and secondary roles (\code{pos_primary}, \code{pos_secondary}) when applicable.
 }
+\examples{
+\dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_standard(
+  path = "standard.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+}
+
+}

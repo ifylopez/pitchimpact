@@ -18,6 +18,17 @@
 #'   Default is 2 for a Google Sheets export.
 #'
 #' @return A tibble with standardized passing statistics (one row per player-season).
+#'
+#' @examples
+#' \dontrun{
+#' # Example workflow using a CSV exported from FBref via Google Sheets
+#' import_fbref_passing(
+#'   path = "passing.csv",
+#'   team = "Rosario Central",
+#'   season = 2023
+#' )
+#' }
+#'
 #' @export
 import_fbref_passing <- function(path, team, season, header_row = 2) {
 

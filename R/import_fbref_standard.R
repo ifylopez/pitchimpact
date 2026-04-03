@@ -26,6 +26,16 @@
 #' including cleaned playing time, performance, expected metrics, progression
 #' statistics, and normalized nationality and position fields.
 #'
+#' @examples
+#' \dontrun{
+#' # Example workflow using a CSV exported from FBref via Google Sheets
+#' import_fbref_standard(
+#'   path = "standard.csv",
+#'   team = "Rosario Central",
+#'   season = 2023
+#' )
+#' }
+#'
 #' @export
 import_fbref_standard <- function(path, team, season, header_row = 2) {
   if (missing(path) || !is.character(path) || length(path) != 1L) {

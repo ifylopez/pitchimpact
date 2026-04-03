@@ -14,6 +14,21 @@
 #' @param strict If TRUE, stops when duplicated keys are detected within any input table.
 #'
 #' @return A tibble with one row per player-season and columns from all provided tables.
+#'
+#' @examples
+#' # Load example datasets included in the package
+#' data(standard_example)
+#' data(shooting_example)
+#'
+#' # Merge tables into a player-season master dataset
+#' master <- merge_fbref_tables(
+#'   standard_example,
+#'   shooting_example
+#' )
+#'
+#' # Inspect result
+#' head(master)
+#'
 #' @export
 merge_fbref_tables <- function(
     standard = NULL,

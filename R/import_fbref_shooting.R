@@ -20,6 +20,17 @@
 #'   Default is 2 for a Google Sheets export.
 #'
 #' @return A tibble with standardized schema (one row per player-season).
+#'
+#' @examples
+#' \dontrun{
+#' # Example workflow using a CSV exported from FBref via Google Sheets
+#' import_fbref_shooting(
+#'   path = "shooting.csv",
+#'   team = "Rosario Central",
+#'   season = 2023
+#' )
+#' }
+#'
 #' @export
 import_fbref_shooting <- function(path, team, season, header_row = 2) {
   if (missing(path) || !is.character(path) || length(path) != 1L) {

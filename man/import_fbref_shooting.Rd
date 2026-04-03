@@ -36,3 +36,14 @@ and export "#ERROR!". This function ignores those raw values and recomputes:
 \item non_pen_goals_minus_npxg = (goals - pens_made) - npxg
 }
 }
+\examples{
+\dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_shooting(
+  path = "shooting.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+}
+
+}
