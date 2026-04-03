@@ -40,3 +40,16 @@ The export includes a first row with group labels; `header_row`
 specifies the row containing the true headers (typically 2). This
 function keeps the season totals columns present in the Sheets export
 and ignores the trailing "Matches" column.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_possession(
+  path = "possession.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+} # }
+```

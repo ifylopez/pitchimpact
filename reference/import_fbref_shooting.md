@@ -46,3 +46,16 @@ and recomputes:
 - goals_minus_xg = goals - xg
 
 - non_pen_goals_minus_npxg = (goals - pens_made) - npxg
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_shooting(
+  path = "shooting.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+} # }
+```

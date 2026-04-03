@@ -49,3 +49,16 @@ Nationality and position fields are standardized: nationality is split
 into a raw field (`nation_raw`) and a cleaned three-letter country code
 (`nation_code`), while positions are parsed into primary and secondary
 roles (`pos_primary`, `pos_secondary`) when applicable.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Example workflow using a CSV exported from FBref via Google Sheets
+import_fbref_standard(
+  path = "standard.csv",
+  team = "Rosario Central",
+  season = 2023
+)
+} # }
+```

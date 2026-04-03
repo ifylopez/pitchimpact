@@ -98,6 +98,39 @@ and then dropped, keeping the <code>standard</code> version as source of truth.<
     <p>A tibble with one row per player-season and columns from all provided tables.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load example datasets included in the package</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">standard_example</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">shooting_example</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Merge tables into a player-season master dataset</span></span></span>
+<span class="r-in"><span><span class="va">master</span> <span class="op">&lt;-</span> <span class="fu">merge_fbref_tables</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">standard_example</span>,</span></span>
+<span class="r-in"><span>  <span class="va">shooting_example</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Inspect result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">master</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 40</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   team    season player nation_raw nation_code pos_raw pos_primary pos_secondary</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Agust… py PAR     PAR         DF      DF          <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Jorge… ar ARG     ARG         GK      GK          <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Vícto… ar ARG     ARG         MF      MF          <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Franc… ar ARG     ARG         MF      MF          <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Emanu… ar ARG     ARG         DF      DF          <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Rosari…   <span style="text-decoration: underline;">2</span>025 Jamin… co COL     COL         MF,FW   MF          FW           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 32 more variables: age &lt;dbl&gt;, mp &lt;dbl&gt;, starts &lt;dbl&gt;, minutes &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   nineties &lt;dbl&gt;, goals &lt;dbl&gt;, assists &lt;dbl&gt;, goals_assists &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   non_pen_goals &lt;dbl&gt;, pens_made &lt;dbl&gt;, pens_att &lt;dbl&gt;, yellow &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   red &lt;dbl&gt;, xg &lt;dbl&gt;, npxg &lt;dbl&gt;, xag &lt;dbl&gt;, npxg_plus_xag &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   prog_carries &lt;dbl&gt;, prog_passes &lt;dbl&gt;, prog_passes_received &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shots &lt;dbl&gt;, shots_on_target &lt;dbl&gt;, shots_on_target_pct &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   shots_per90 &lt;dbl&gt;, shots_on_target_per90 &lt;dbl&gt;, goals_per_shot &lt;dbl&gt;, …</span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 
