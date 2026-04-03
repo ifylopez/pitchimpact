@@ -7,40 +7,156 @@
 
 <!-- badges: end -->
 
-**pitchimpact** is an R package under development focused on **football
-performance analysis** using advanced statistics sourced from **FBref**.
+# pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
-The main goal of the package is to **standardize, integrate, and analyze
-player- and team-level data** from multiple FBref tables (Standard
-Stats, Shooting, Passing, Defensive Actions, and Possession), providing
-a clean and reproducible workflow for exploratory analysis, modeling,
-and visualization.
+`pitchimpact` is an R package for football analytics that transforms raw
+FBref exports into clean, standardized player-season datasets ready for
+analysis, modeling, and visualization.
 
-This project is primarily designed for **academic and learning
-purposes**, with a strong emphasis on data cleaning, schema design, and
-end-to-end analytical workflows.  
-In the long term, it aims to serve as a foundation for applied football
-analytics projects.
+It provides a reproducible workflow to integrate multiple statistical
+tables (Standard Stats, Shooting, Passing, Defensive Actions, and
+Possession) into a single analytical dataset.
+
+**It bridges the gap between raw football data and actionable
+insights.**
+
+------------------------------------------------------------------------
+
+## What does pitchimpact do?
+
+- Import FBref tables exported as CSV
+- Standardize variable names and data types
+- Merge multiple tables into a unified player-season dataset
+- Enable reproducible football analytics workflows
+
+------------------------------------------------------------------------
+
+## Typical workflow
+
+1.  Export tables from FBref to CSV via Google Sheets  
+2.  Import them using `pitchimpact`  
+3.  Merge into a master dataset  
+4.  Analyze player performance
+
+👉 See the full workflow: - [From FBref to Master
+Table](articles/from-fbref-to-master-table.html)
+
+------------------------------------------------------------------------
 
 ## Installation
 
-You can install the development version of pitchimpact from
-[GitHub](https://github.com/) with:
+You can install pitchimpact from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
 pak::pak("ifylopez/pitchimpact")
-#> ✔ Updated metadata database: 5.48 MB in 4 files.
-#> ℹ Updating metadata database✔ Updating metadata database ... done
+#> ℹ Loading metadata database✔ Loading metadata database ... done
 #>  
+#> → Will install 31 packages.
 #> → Will update 1 package.
+#> → Will download 31 CRAN packages (33.22 MB).
 #> → Will download 1 package with unknown size.
-#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: 6cf6121)
-#> ℹ Getting 1 pkg with unknown size
+#> + bit                      4.6.0      [dl] (634.93 kB)
+#> + bit64                    4.6.0-1    [dl] (511.31 kB)
+#> + cli                      3.6.5      [dl] (1.40 MB)
+#> + clipr                    0.8.0      [dl] (55.50 kB)
+#> + crayon                   1.5.3      [dl] (165.17 kB)
+#> + dplyr                    1.2.0      [dl] (1.62 MB)
+#> + generics                 0.1.4      [dl] (84.66 kB)
+#> + glue                     1.8.0      [dl] (183.69 kB)
+#> + hms                      1.1.4      [dl] (109.35 kB)
+#> + janitor                  2.2.1      [dl] (292.59 kB)
+#> + lifecycle                1.0.5      [dl] (149.81 kB)
+#> + lubridate                1.9.5      [dl] (996.63 kB)
+#> + magrittr                 2.0.4      [dl] (229.05 kB)
+#> + pillar                   1.11.1     [dl] (673.34 kB)
+#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: dcce0d9)
+#> + pkgconfig                2.0.3      [dl] (22.81 kB)
+#> + purrr                    1.2.1      [dl] (571.94 kB)
+#> + R6                       2.6.1      [dl] (88.59 kB)
+#> + readr                    2.2.0      [dl] (1.21 MB)
+#> + rlang                    1.1.7      [dl] (1.63 MB)
+#> + snakecase                0.11.1     [dl] (168.37 kB)
+#> + stringi                  1.8.7      [dl] (15.01 MB)
+#> + stringr                  1.6.0      [dl] (349.43 kB)
+#> + tibble                   3.3.1      [dl] (667.34 kB)
+#> + tidyr                    1.3.2      [dl] (1.28 MB)
+#> + tidyselect               1.2.1      [dl] (227.98 kB)
+#> + timechange               0.4.0      [dl] (532.39 kB)
+#> + tzdb                     0.5.0      [dl] (1.05 MB)
+#> + utf8                     1.2.6      [dl] (155.23 kB)
+#> + vctrs                    0.7.2      [dl] (1.50 MB)
+#> + vroom                    1.7.0      [dl] (1.42 MB)
+#> + withr                    3.0.2      [dl] (231.63 kB)
+#> ℹ Getting 31 pkgs (33.22 MB) and 1 pkg with unknown size
 #> ✔ Cached copy of pitchimpact 0.0.0.9000 (source) is the latest build
-#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@6cf6121) (253ms)
-#> ✔ 1 pkg + 31 deps: kept 24, upd 1 [33s]
+#> ✔ Cached copy of R6 2.6.1 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of bit64 4.6.0-1 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of bit 4.6.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of cli 3.6.5 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of clipr 0.8.0 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of crayon 1.5.3 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of dplyr 1.2.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of generics 0.1.4 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of glue 1.8.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of hms 1.1.4 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of janitor 2.2.1 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of lifecycle 1.0.5 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of lubridate 1.9.5 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of magrittr 2.0.4 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of pillar 1.11.1 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of pkgconfig 2.0.3 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of purrr 1.2.1 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of readr 2.2.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of rlang 1.1.7 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of snakecase 0.11.1 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of stringi 1.8.7 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of stringr 1.6.0 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of tibble 3.3.1 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of tidyr 1.3.2 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of tidyselect 1.2.1 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of timechange 0.4.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of tzdb 0.5.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of utf8 1.2.6 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of vctrs 0.7.2 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of vroom 1.7.0 (x86_64-w64-mingw32) is the latest build
+#> ✔ Cached copy of withr 3.0.2 (i386+x86_64-w64-mingw32) is the latest build
+#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@dcce0d9) (769ms)
+#> ✔ Installed R6 2.6.1  (784ms)
+#> ✔ Installed bit64 4.6.0-1  (853ms)
+#> ✔ Installed bit 4.6.0  (883ms)
+#> ✔ Installed cli 3.6.5  (945ms)
+#> ✔ Installed clipr 0.8.0  (977ms)
+#> ✔ Installed crayon 1.5.3  (1s)
+#> ✔ Installed dplyr 1.2.0  (1s)
+#> ✔ Installed generics 0.1.4  (1.1s)
+#> ✔ Installed glue 1.8.0  (1.1s)
+#> ✔ Installed hms 1.1.4  (1.2s)
+#> ✔ Installed janitor 2.2.1  (1.3s)
+#> ✔ Installed lifecycle 1.0.5  (1.4s)
+#> ✔ Installed lubridate 1.9.5  (1.3s)
+#> ✔ Installed magrittr 2.0.4  (581ms)
+#> ✔ Installed pkgconfig 2.0.3  (643ms)
+#> ✔ Installed pillar 1.11.1  (1s)
+#> ✔ Installed purrr 1.2.1  (1.1s)
+#> ✔ Installed readr 2.2.0  (1.2s)
+#> ✔ Installed snakecase 0.11.1  (1.1s)
+#> ✔ Installed rlang 1.1.7  (1.2s)
+#> ✔ Installed stringr 1.6.0  (1.2s)
+#> ✔ Installed tibble 3.3.1  (1.1s)
+#> ✔ Installed tidyr 1.3.2  (1.2s)
+#> ✔ Installed stringi 1.8.7  (1.5s)
+#> ✔ Installed tidyselect 1.2.1  (981ms)
+#> ✔ Installed timechange 0.4.0  (1.1s)
+#> ✔ Installed utf8 1.2.6  (977ms)
+#> ✔ Installed tzdb 0.5.0  (1.1s)
+#> ✔ Installed vctrs 0.7.2  (911ms)
+#> ✔ Installed withr 3.0.2  (888ms)
+#> ✔ Installed vroom 1.7.0  (1.1s)
+#> ✔ 1 pkg + 31 deps: upd 1, added 31 [13.3s]
 ```
+
+------------------------------------------------------------------------
 
 ## First steps
 
@@ -49,6 +165,33 @@ Load the package with:
 ``` r
 library(pitchimpact)
 ```
+
+------------------------------------------------------------------------
+
+## Quick example
+
+``` r
+data(standard_example)
+data(shooting_example)
+
+master <- merge_fbref_tables(standard_example, shooting_example)
+
+dplyr::select(master, player, goals, xg) |> head()
+#> # A tibble: 6 × 3
+#>   player          goals    xg
+#>   <chr>           <dbl> <dbl>
+#> 1 Agustín Sández      2   1.5
+#> 2 Jorge Broun         0   0  
+#> 3 Víctor Malcorra     7   5.9
+#> 4 Franco Ibarra       1   0.6
+#> 5 Emanuel Coronel     0   0.2
+#> 6 Jaminton Campaz     4   3
+```
+
+This creates a clean, analysis-ready dataset combining multiple
+statistical sources.
+
+------------------------------------------------------------------------
 
 ## Included example datasets
 
@@ -66,21 +209,7 @@ workflows.
 | `possession_example` | Ball control, carries, and possession metrics |
 | `master_example` | Fully merged player-season dataset |
 
-### Quick example
-
-``` r
-data(standard_example)
-dplyr::select(standard_example, player, goals, xg) |> head()
-#> # A tibble: 6 × 3
-#>   player          goals    xg
-#>   <chr>           <dbl> <dbl>
-#> 1 Agustín Sández      2   1.5
-#> 2 Jorge Broun         0   0  
-#> 3 Víctor Malcorra     7   5.9
-#> 4 Franco Ibarra       1   0.6
-#> 5 Emanuel Coronel     0   0.2
-#> 6 Jaminton Campaz     4   3
-```
+------------------------------------------------------------------------
 
 ## Available functions
 
@@ -125,21 +254,28 @@ variable names and consistent data types.
 The resulting table preserves one row per player and aggregates all
 available metrics across statistical domains.
 
-## Basic workflow
+------------------------------------------------------------------------
 
-The package includes detailed vignettes that walk through the complete
-workflow, from exporting FBref tables to building a unified dataset:
+## Why pitchimpact?
 
-- **From FBref to a master table**
+- Designed specifically for FBref-based workflows
+- Focused on player-season level analysis
+- Reproducible and modular
+- Built as a foundation for advanced football analytics projects
 
-- (More coming soon)
+------------------------------------------------------------------------
 
-You can access them with:
+## Typical workflow
 
-``` r
-browseVignettes("pitchimpact")
-#> No vignettes found by browseVignettes("pitchimpact")
-```
+1.  Export tables from FBref to CSV via Google Sheets
+2.  Import them using `pitchimpact`
+3.  Merge into a master dataset
+4.  Analyze player performance
+
+See the full workflow in the vignette: - [From FBref to Master
+Table](articles/from-fbref-to-master-table.html)
+
+------------------------------------------------------------------------
 
 ## Roadmap
 
@@ -182,11 +318,15 @@ of **pitchimpact**.
 The roadmap is intentionally flexible and may evolve as the project
 grows.
 
+------------------------------------------------------------------------
+
 ## Contributing
 
 Contributions, suggestions, and feedback are very welcome! Please refer
 to the [Contributing Guide](.github/CONTRIBUTING.md) for details on how
 to get involved.
+
+------------------------------------------------------------------------
 
 ## Code of Conduct
 
@@ -194,6 +334,8 @@ We want **pitchimpact** to be a respectful, inclusive, and collaborative
 project. All interactions are governed by our [Code of
 Conduct](CODE_OF_CONDUCT.md). By participating, you agree to abide by
 these guidelines.
+
+------------------------------------------------------------------------
 
 ### Author
 

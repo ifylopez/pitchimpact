@@ -19,21 +19,47 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-**pitchimpact** is an R package under development focused on **football performance analysis** using advanced statistics sourced from **FBref**.
+# pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
-The main goal of the package is to **standardize, integrate, and analyze player- and team-level data** from multiple FBref tables (Standard Stats, Shooting, Passing, Defensive Actions, and Possession), providing a clean and reproducible workflow for exploratory analysis, modeling, and visualization.
+`pitchimpact` is an R package for football analytics that transforms raw FBref exports into clean, standardized player-season datasets ready for analysis, modeling, and visualization.
 
-This project is primarily designed for **academic and learning purposes**, with a strong emphasis on data cleaning, schema design, and end-to-end analytical workflows.\
-In the long term, it aims to serve as a foundation for applied football analytics projects.
+It provides a reproducible workflow to integrate multiple statistical tables (Standard Stats, Shooting, Passing, Defensive Actions, and Possession) into a single analytical dataset.
+
+**It bridges the gap between raw football data and actionable insights.**
+
+---
+
+## What does pitchimpact do?
+
+- Import FBref tables exported as CSV
+- Standardize variable names and data types
+- Merge multiple tables into a unified player-season dataset
+- Enable reproducible football analytics workflows
+
+---
+
+## Typical workflow
+
+1. Export tables from FBref to CSV via Google Sheets  
+2. Import them using `pitchimpact`  
+3. Merge into a master dataset  
+4. Analyze player performance  
+
+👉 See the full workflow:
+- [From FBref to Master Table](articles/from-fbref-to-master-table.html)
+
+---
 
 ## Installation
 
-You can install the development version of pitchimpact from [GitHub](https://github.com/) with:
+You can install pitchimpact from [GitHub](https://github.com/) with:
 
 ```{r}
 # install.packages("pak")
 pak::pak("ifylopez/pitchimpact")
 ```
+
+---
 
 ## First steps
 
@@ -42,6 +68,22 @@ Load the package with:
 ```{r}
 library(pitchimpact)
 ```
+
+---
+
+## Quick example
+
+```{r}
+standard <- import_fbref_standard("standard.csv")
+shooting <- import_fbref_shooting("shooting.csv")
+
+master <- merge_fbref_tables(standard, shooting)
+
+dplyr::select(master, player, goals, xg) |> head()
+```
+This creates a clean, analysis-ready dataset combining multiple statistical sources.
+
+---
 
 ## Included example datasets
 
@@ -56,13 +98,7 @@ The package includes several **example datasets** derived from FBref tables. The
 | `possession_example` | Ball control, carries, and possession metrics |
 | `master_example` | Fully merged player-season dataset |
 
-### Quick example
-
-```{r}
-data(standard_example)
-dplyr::select(standard_example, player, goals, xg) |> head()
-
-```
+---
 
 ## Available functions
 
@@ -102,23 +138,33 @@ Each function returns **one row per player-season**, with cleaned variable names
 
 The resulting table preserves one row per player and aggregates all available metrics across statistical domains.
 
-## Basic workflow
+---
 
-The package includes detailed vignettes that walk through the complete workflow, from exporting FBref tables to building a unified dataset:
+## Why pitchimpact?
 
--   **From FBref to a master table**
+- Designed specifically for FBref-based workflows
+- Focused on player-season level analysis
+- Reproducible and modular
+- Built as a foundation for advanced football analytics projects
 
--   (More coming soon)
+---
 
-You can access them with:
+## Typical workflow
 
-```{r}
-browseVignettes("pitchimpact")
-```
+1. Export tables from FBref to CSV via Google Sheets
+2. Import them using `pitchimpact`
+3. Merge into a master dataset
+4. Analyze player performance
+
+See the full workflow in the vignette:
+- [From FBref to Master Table](articles/from-fbref-to-master-table.html)
+
+---
 
 ## Roadmap
 
 The following roadmap outlines the current scope and planned development of **pitchimpact**.
+
 
 ### ✅ Current features
 
@@ -155,13 +201,19 @@ The following roadmap outlines the current scope and planned development of **pi
 
 The roadmap is intentionally flexible and may evolve as the project grows.
 
+---
+
 ## Contributing
 
 Contributions, suggestions, and feedback are very welcome! Please refer to the [Contributing Guide](.github/CONTRIBUTING.md) for details on how to get involved.
 
+---
+
 ## Code of Conduct
 
 We want **pitchimpact** to be a respectful, inclusive, and collaborative project. All interactions are governed by our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to abide by these guidelines.
+
+---
 
 ### Author
 
