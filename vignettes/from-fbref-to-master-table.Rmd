@@ -102,20 +102,6 @@ Useful for:
 glimpse(shooting_example)
 ```
 
-```{r}
-library(dplyr)
-library(gt)
-
-master_from_merge %>%
-  select(player, pos_primary, goals, xg, minutes) %>%
-  head(10) %>%
-  gt() %>%
-  tab_header(
-    title = "Player Performance Snapshot",
-    subtitle = "Rosario Central - 2025 Season"
-  )
-```
-
 Useful for:
 
 -   shot volume and accuracy
