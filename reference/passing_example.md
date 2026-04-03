@@ -160,7 +160,14 @@ and is intended for examples, tests, and vignettes.
 
 ``` r
 data("passing_example", package = "pitchimpact")
-dplyr::select(passing_example, player, touches, carries) |> head()
-#> Error in dplyr::select(passing_example, player, touches, carries): Can't select columns that don't exist.
-#> ✖ Column `touches` doesn't exist.
+dplyr::select(passing_example, player, passes_completed, total_pass_distance) |> head()
+#> # A tibble: 6 × 3
+#>   player          passes_completed total_pass_distance
+#>   <chr>                      <dbl>               <dbl>
+#> 1 Agustín Sández               992               16479
+#> 2 Jorge Broun                  607               17973
+#> 3 Víctor Malcorra              863               17414
+#> 4 Franco Ibarra                874               16987
+#> 5 Emanuel Coronel              814               13602
+#> 6 Jaminton Campaz              517                8645
 ```
