@@ -1,5 +1,5 @@
 url: https://ifylopez.github.io/pitchimpact/
 template:
   bootstrap: 5
-
+  bootswatch: minty
 
