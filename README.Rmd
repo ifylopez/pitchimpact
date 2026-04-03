@@ -16,13 +16,9 @@ knitr::opts_chunk$set(
 # pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ifylopez/pitchimpact/actions)
-
 [![pkgdown](https://github.com/ifylopez/pitchimpact/actions/workflows/pkgdown.yaml/badge.svg)](https://ifylopez.github.io/pitchimpact/)
 [![R-CMD-check](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
-
-# pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
 `pitchimpact` is an R package for football analytics that transforms raw FBref exports into clean, standardized player-season datasets ready for analysis, modeling, and visualization.
 

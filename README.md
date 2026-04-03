@@ -5,13 +5,9 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ifylopez/pitchimpact/actions)
-
 [![pkgdown](https://github.com/ifylopez/pitchimpact/actions/workflows/pkgdown.yaml/badge.svg)](https://ifylopez.github.io/pitchimpact/)
 [![R-CMD-check](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ifylopez/pitchimpact/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
-
-# pitchimpact <img src="man/figures/logo_pitchimpact_oficial.png" align="right" width="130"/>
 
 `pitchimpact` is an R package for football analytics that transforms raw
 FBref exports into clean, standardized player-season datasets ready for
@@ -74,7 +70,7 @@ pak::pak("ifylopez/pitchimpact")
 #> + lubridate                1.9.5      [dl] (996.63 kB)
 #> + magrittr                 2.0.4      [dl] (229.05 kB)
 #> + pillar                   1.11.1     [dl] (673.34 kB)
-#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: 16825e3)
+#> + pitchimpact 0.0.0.9000 → 0.0.0.9000 [bld][cmp][dl] (GitHub: 5bbdb13)
 #> + pkgconfig                2.0.3      [dl] (22.81 kB)
 #> + purrr                    1.2.1      [dl] (571.94 kB)
 #> + R6                       2.6.1      [dl] (88.59 kB)
@@ -124,44 +120,44 @@ pak::pak("ifylopez/pitchimpact")
 #> ✔ Cached copy of vctrs 0.7.2 (x86_64-w64-mingw32) is the latest build
 #> ✔ Cached copy of vroom 1.7.0 (x86_64-w64-mingw32) is the latest build
 #> ✔ Cached copy of withr 3.0.2 (i386+x86_64-w64-mingw32) is the latest build
-#> ✔ Got pitchimpact 0.0.0.9000 (source) (1.30 MB)
-#> ✔ Installed R6 2.6.1  (617ms)
-#> ✔ Installed bit64 4.6.0-1  (754ms)
-#> ✔ Installed bit 4.6.0  (829ms)
-#> ✔ Installed cli 3.6.5  (882ms)
-#> ✔ Installed clipr 0.8.0  (913ms)
-#> ✔ Installed crayon 1.5.3  (969ms)
-#> ✔ Installed dplyr 1.2.0  (998ms)
-#> ✔ Installed generics 0.1.4  (975ms)
-#> ✔ Installed glue 1.8.0  (1s)
-#> ✔ Installed janitor 2.2.1  (1s)
-#> ✔ Installed hms 1.1.4  (1.1s)
-#> ✔ Installed lubridate 1.9.5  (1s)
-#> ✔ Installed lifecycle 1.0.5  (1.1s)
+#> ✔ Got pitchimpact 0.0.0.9000 (source) (1.31 MB)
+#> ✔ Installed R6 2.6.1  (551ms)
+#> ✔ Installed bit64 4.6.0-1  (562ms)
+#> ✔ Installed bit 4.6.0  (690ms)
+#> ✔ Installed cli 3.6.5  (828ms)
+#> ✔ Installed clipr 0.8.0  (847ms)
+#> ✔ Installed crayon 1.5.3  (910ms)
+#> ✔ Installed generics 0.1.4  (798ms)
+#> ✔ Installed glue 1.8.0  (889ms)
+#> ✔ Installed hms 1.1.4  (919ms)
+#> ✔ Installed janitor 2.2.1  (977ms)
+#> ✔ Installed dplyr 1.2.0  (1.2s)
 #> ✔ Installed magrittr 2.0.4  (1.2s)
-#> ✔ Installed pillar 1.11.1  (510ms)
-#> ✔ Installed pkgconfig 2.0.3  (943ms)
-#> ✔ Installed purrr 1.2.1  (1.1s)
+#> ✔ Installed lifecycle 1.0.5  (1.3s)
+#> ✔ Installed lubridate 1.9.5  (1.5s)
+#> ✔ Installed pillar 1.11.1  (973ms)
+#> ✔ Installed pkgconfig 2.0.3  (978ms)
+#> ✔ Installed purrr 1.2.1  (981ms)
+#> ✔ Installed readr 2.2.0  (1.1s)
 #> ✔ Installed rlang 1.1.7  (1.1s)
-#> ✔ Installed readr 2.2.0  (1.3s)
-#> ✔ Installed snakecase 0.11.1  (1.6s)
-#> ✔ Installed stringr 1.6.0  (1.6s)
-#> ✔ Installed tibble 3.3.1  (1.6s)
-#> ✔ Installed stringi 1.8.7  (1.9s)
-#> ✔ Installed tidyr 1.3.2  (1.8s)
+#> ✔ Installed snakecase 0.11.1  (1.3s)
+#> ✔ Installed stringr 1.6.0  (1.4s)
+#> ✔ Installed tibble 3.3.1  (1.4s)
+#> ✔ Installed stringi 1.8.7  (1.6s)
 #> ✔ Installed tidyselect 1.2.1  (1.3s)
+#> ✔ Installed tidyr 1.3.2  (1.4s)
 #> ✔ Installed timechange 0.4.0  (1.4s)
-#> ✔ Installed utf8 1.2.6  (1.4s)
-#> ✔ Installed tzdb 0.5.0  (1.5s)
-#> ✔ Installed vctrs 0.7.2  (1.4s)
-#> ✔ Installed withr 3.0.2  (1.3s)
-#> ✔ Installed vroom 1.7.0  (1.6s)
+#> ✔ Installed utf8 1.2.6  (1.3s)
+#> ✔ Installed tzdb 0.5.0  (1.4s)
+#> ✔ Installed vctrs 0.7.2  (1.3s)
+#> ✔ Installed vroom 1.7.0  (1.4s)
+#> ✔ Installed withr 3.0.2  (1.4s)
 #> ℹ Packaging pitchimpact 0.0.0.9000
-#> ✔ Packaged pitchimpact 0.0.0.9000 (1.6s)
+#> ✔ Packaged pitchimpact 0.0.0.9000 (1.7s)
 #> ℹ Building pitchimpact 0.0.0.9000
-#> ✔ Built pitchimpact 0.0.0.9000 (3.4s)
-#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@16825e3) (219ms)
-#> ✔ 1 pkg + 31 deps: upd 1, added 31, dld 1 (NA B) [19.9s]
+#> ✔ Built pitchimpact 0.0.0.9000 (3.5s)
+#> ✔ Installed pitchimpact 0.0.0.9000 (github::ifylopez/pitchimpact@5bbdb13) (208ms)
+#> ✔ 1 pkg + 31 deps: upd 1, added 31, dld 1 (NA B) [20.7s]
 ```
 
 ------------------------------------------------------------------------
