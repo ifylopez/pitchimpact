@@ -74,10 +74,10 @@ library(pitchimpact)
 ## Quick example
 
 ```{r}
-standard <- import_fbref_standard("standard.csv")
-shooting <- import_fbref_shooting("shooting.csv")
+data(standard_example)
+data(shooting_example)
 
-master <- merge_fbref_tables(standard, shooting)
+master <- merge_fbref_tables(standard_example, shooting_example)
 
 dplyr::select(master, player, goals, xg) |> head()
 ```
